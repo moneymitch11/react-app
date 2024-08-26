@@ -23,12 +23,16 @@ function App() {
   <>
     <h1>Customers List</h1>
     <table>
-        <tr>
-          <th>Name</th>
-          <th>Email</th>
-          <th>Pass</th>
-        </tr>
-        <Customer customer={customer_data}/>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Pass</th>
+            </tr>
+        </thead>
+        <tbody>
+            <Customer customer={customer_data}/>  
+        </tbody>
     </table>
     <div>
       <h2>Update</h2>
