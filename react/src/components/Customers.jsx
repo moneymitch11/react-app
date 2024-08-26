@@ -1,14 +1,11 @@
-import { useState } from "react"
+import { useState } from "react";
+import { Customer } from "./Customer"
+import customers from "../customers.json"
 
-function fetchCustomers () {
-    const newPeople = await fetch('../src/customers.json')
-      .then(res => res.json())
-      .then(ppl => ppl.map(p => ({ ...p, id: counter++ })))
-    setPeople(newPeople);
-} 
-export const Customers = ({Customers}) => {
-    const [customers,setCustomers] = useState([])
 
-    customers.map(c =>{<Customer customer = {c} key = {c.id}/>}) 
+export function Customers () {
 
+    return (
+      customers.map(c => <Customer customer={c}/>)
+    )
 }
