@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-import { Customers } from "./components/Customers.jsx"
+import customer_data from "../src/customers.json"
+import { Customer } from "./components/Customer.jsx"
 
 function App() {
   
@@ -17,6 +18,7 @@ function App() {
     return console.log("In On canclel Click")
   } 
 
+  console.log(customer_data)
   return (
   <>
     <h1>Customers List</h1>
@@ -29,7 +31,7 @@ function App() {
             </tr>
         </thead>
         <tbody>
-            <Customers />  
+            <Customer customer={customer_data}/>  
         </tbody>
     </table>
     <div>
