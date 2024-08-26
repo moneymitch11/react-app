@@ -4,7 +4,18 @@ import viteLogo from '/vite.svg'
 
 function App() {
   
-  
+  const ondeleteclick = () =>{
+    return console.log("In On Delete Click")
+  } 
+
+  const onsaveclick = () =>{
+    return console.log("In On Save Click")
+  } 
+
+  const oncancelclick = () =>{
+    return console.log("In On canclel Click")
+  } 
+
   return (
   <>
     <h1>Customers List</h1>
@@ -23,13 +34,19 @@ function App() {
     <div>
       <h2>Update</h2>
       <form action="update">
-        <label>Name: <input type="name" /></label>
-        <label>Email: <input type="email" /></label>
-        <label>Pass: <input type="password" /></label>
+        <div>
+            <label>Name: </label><input type="name" />
+        </div>
+        <div>
+            <label>Email: </label><input type="email" />
+        </div>
+        <div>
+            <label>Pass: </label><input type="password" />
+        </div>
       </form>
-      <button>Delete</button>
-      <button>Save</button>
-      <button>Cancel</button>
+      <button onClick={ondeleteclick}>Delete</button>
+      <button onClick={onsaveclick}>Save</button>
+      <button onClick={oncancelclick}>Cancel</button>
     </div>
   </>
   )
