@@ -1,8 +1,8 @@
-import { UpdateForm } from "./UpdateForm"
+/* eslint-disable react/prop-types */
 
-export const Customer = ( {customer, setCurrentCustomer, currentCustomer} ) => {
+export const Customer = ({ customer, setCurrentCustomer, currentCustomer }) => {
 
-    const handleListClick = () =>{
+    const handleListClick = () => {
         setCurrentCustomer(customer)
         console.log(customer)
         /* return (
@@ -10,10 +10,9 @@ export const Customer = ( {customer, setCurrentCustomer, currentCustomer} ) => {
         ) */
     }
 
-    
+
     return (
-        //ASK RAP ABOUT QUESTION-MARK
-        <tr onClick={handleListClick}>
+        <tr onClick={handleListClick} className={(customer === currentCustomer) ? "checked" : ""}>
             <td>{customer.name}</td>
             <td>{customer.email}</td>
             <td>{customer.pass}</td>
