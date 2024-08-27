@@ -1,13 +1,13 @@
 import { UpdateForm } from "./UpdateForm"
 
-export const Customer = ( {customer, setOption, option} ) => {
+export const Customer = ( {customer, setCurrentCustomer, currentCustomer} ) => {
 
     const handleListClick = () =>{
-        setOption(customer)
-        console.log(option)
-        return (
-            <UpdateForm current={option}/>
-        )
+        setCurrentCustomer(customer)
+        console.log(customer)
+        /* return (
+            <UpdateForm current={currentCustomer}/>
+        ) */
     }
 
     

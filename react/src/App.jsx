@@ -5,8 +5,8 @@ import { useState } from 'react';
 
 function App() {
   
-    const [customers,setCustomers] = useState([])
-    const [option, setOption] = useState({name:"",emal:"",pass:""})
+    const [customers, setCustomers] = useState(customer_data)
+    const [currentCustomer, setCurrentCustomer] = useState({name:"",emal:"",pass:""})
     return (
   <>
     <h1>Customers List</h1>
@@ -19,10 +19,10 @@ function App() {
             </tr>
         </thead>
         <tbody>
-            <Customers customers={customer_data} setOption={setOption} current={option}/>  
+            <Customers customers={customers} setCurrentCustomer={setCurrentCustomer} current={currentCustomer}/>  
         </tbody>
     </table>
-    <UpdateForm current={option} setOption={setOption} customers={customer_data} setCustomers={setCustomers}/>
+    <UpdateForm current={currentCustomer} setOption={setCurrentCustomer} customers={customers} setCustomers={setCustomers}/>
   </>
   )
 }
