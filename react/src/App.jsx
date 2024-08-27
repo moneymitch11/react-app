@@ -1,20 +1,13 @@
 import { Customers } from "./components/Customers.jsx"
+import { UpdateForm } from "./components/UpdateForm.jsx"
+import customer_data from "./customers.json"
+import { useState } from 'react';
 
 function App() {
   
-  const ondeleteclick = () =>{
-    return console.log("In On Delete Click")
-  } 
-
-  const onsaveclick = () =>{
-    return console.log("In On Save Click")
-  } 
-
-  const oncancelclick = () =>{
-    return console.log("In On canclel Click")
-  } 
-
-  return (
+    const [customers,setCustomers] = useState([])
+    const [option, setOption] = useState({name:"",emal:"",pass:""})
+    return (
   <>
     <h1>Customers List</h1>
     <table>
@@ -26,26 +19,10 @@ function App() {
             </tr>
         </thead>
         <tbody>
-            <Customers />  
+            <Customers customers={customer_data} setOption={setOption} current={option}/>  
         </tbody>
     </table>
-    <div>
-      <h2>Update</h2>
-      <form action="update">
-        <div>
-            <label>Name: </label><input type="name" />
-        </div>
-        <div>
-            <label>Email: </label><input type="email" />
-        </div>
-        <div>
-            <label>Pass: </label><input type="password" />
-        </div>
-      </form>
-      <button onClick={ondeleteclick}>Delete</button>
-      <button onClick={onsaveclick}>Save</button>
-      <button onClick={oncancelclick}>Cancel</button>
-    </div>
+    <UpdateForm current={option} setOption={setOption} customers={customer_data} setCustomers={setCustomers}/>
   </>
   )
 }
