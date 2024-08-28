@@ -5,34 +5,42 @@ import { useState } from 'react';
 
 function App() {
 
+    let updatedCustomers
     const [customers, setCustomers] = useState(customer_data)
     const [currentCustomer, setCurrentCustomer] = useState({ name: "", emal: "", pass: "" })
     return (
-        <>
-            <h1>Customers List</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Pass</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <Customers customers={customers} setCurrentCustomer={setCurrentCustomer} current={currentCustomer} />
-                </tbody>
-            </table>
-            <UpdateForm
-                current={currentCustomer}
-                customers={customers}
-                setCustomers={setCustomers}
-                setCurrentCustomer={setCurrentCustomer}
-                addANewCustomer={addANewCustomer} />
+        <> 
+          <Customers 
+              customers={customers}
+              setCurrentCustomer={setCurrentCustomer} 
+              current={currentCustomer} />
+          <UpdateForm
+              current={currentCustomer}
+              addCustomer={addCustomer}
+              deleteCustomer={deleteCustomer}
+              cancelSelection={cancelSelection}
+              updateCustomer={updateCustomer} />
         </>
     )
 
-    function addANewCustomer(customer) {
+    function addCustomer(customer) {
         setCustomers([...customers, customer])
+    }
+
+    function deleteCustomer(customer) {
+      updatedCustomers = customers.filter(c => c.id !== customer.id);
+      console.log({ updatedCustomers, customer })
+      setCustomers(updatedCustomers)
+    }
+  
+    function updateCustomer (customer) {
+        updatedCustomers = customers.map(c => c.id === customer.id ? { ...customer } : c);
+        console.log({ updatedCustomers, customer })
+        setCustomers(updatedCustomers)
+    }
+  
+    function cancelSelection () {
+        setCurrentCustomer(undefined);
     }
 }
 

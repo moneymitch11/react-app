@@ -5,9 +5,6 @@ export const Customer = ({ customer, setCurrentCustomer, currentCustomer }) => {
     const handleListClick = () => {
         setCurrentCustomer(customer)
         console.log(customer)
-        /* return (
-            <UpdateForm current={currentCustomer}/>
-        ) */
     }
 
 

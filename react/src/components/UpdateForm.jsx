@@ -1,34 +1,34 @@
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from 'react';
 
-export const UpdateForm = ({ current, setCurrentCustomer, customers, setCustomers, addANewCustomer }) => {
+export const UpdateForm = ({ current, addCustomer, deleteCustomer, updateCustomer, cancelSelection }) => {
 
-    let updatedCustomers
     const [formState, setFormState] = useState({ ...current });
 
     useEffect(() => {
         setFormState({ ...current });
     }, [current])
 
-    const ondeleteclick = (customer) => {
-        updatedCustomers = customers.filter(c => c !== customer);
-        console.log({ updatedCustomers, customer })
-        setCustomers(updatedCustomers)
+    const ondeleteclick = () => {
+       deleteCustomer(formState)
+       setFormState("");
     }
 
-    const onsaveclick = (customer) => {
-        updatedCustomers = customers.map(c => c.id === formState.id ? { ...formState } : c);
-        console.log({ updatedCustomers, customer })
-        setCustomers(updatedCustomers)
+    const onsaveclick = () => {
+        updateCustomer(formState)
     }
 
     const oncancelclick = () => {
         setFormState("");
-        setCurrentCustomer(undefined);
+        cancelSelection()
     }
 
     const onAddClick = () => {
-        addANewCustomer(formState);
+        if (formState.name === '' || formState.email === '' || formState.pass === ''){
+            alert("Please enter valid input")
+        }else{
+            addCustomer(formState);
+        }
     }
 
     const handleInputChange = (e) => {
@@ -54,7 +54,7 @@ export const UpdateForm = ({ current, setCurrentCustomer, customers, setCustomer
                 </div>
             </form>
             <button onClick={onAddClick}>Add</button>
-            <button onClick={() => ondeleteclick(current)}>Delete</button>
+            <button onClick={ondeleteclick}>Delete</button>
             <button onClick={onsaveclick}>Save</button>
             <button onClick={oncancelclick}>Cancel</button>
         </>
