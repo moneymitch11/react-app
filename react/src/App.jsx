@@ -1,13 +1,16 @@
-import { Customers } from "./components/Customers.jsx"
-import { UpdateForm } from "./components/UpdateForm.jsx"
-import customer_data from "./customers.json"
+import { Customers } from "./components/Customers.jsx";
+import { UpdateForm } from "./components/UpdateForm.jsx";
+import customer_data from "./customers.json";
 import { useState } from 'react';
 
 function App() {
-
+    // State variable to hold the list of customers, initialized with data from JSON file
+    const [customers, setCustomers] = useState(customer_data);
+    
     let updatedCustomers
-    const [customers, setCustomers] = useState(customer_data)
-    const [currentCustomer, setCurrentCustomer] = useState({ name: "", emal: "", pass: "" })
+    // State variable to hold the details of the currently selected customer for editing
+    const [currentCustomer, setCurrentCustomer] = useState({ name: "", email: "", pass: "" });
+
     return (
         <> 
           <Customers 
@@ -44,4 +47,4 @@ function App() {
     }
 }
 
-export default App
+export default App;
