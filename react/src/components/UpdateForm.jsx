@@ -39,11 +39,8 @@ export const UpdateForm = ({ current, setOption, customers, setCustomers }) => {
 
     // Handler for the Add button click
     const onAddClick = () => {
-        // Add new or updated customer information to the list
-        updatedCustomers = customers.map(c => ({ ...c, ...formState }));
-        console.log(updatedCustomers);
         // Update the customer list state
-        setCustomers(updatedCustomers);
+        setCustomers([...customers, formState]);
     };
 
     // Handler for form input changes
