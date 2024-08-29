@@ -9,10 +9,10 @@ export const Customer = ({ customer, setCurrentCustomer, currentCustomer }) => {
     }
 
     return (
-       <tr onClick={handleListClick}>
-            <td>{customer.name}</td> {/* Display the customer's name */}
-            <td>{customer.email}</td> {/* Display the customer's email */}
-            <td>{customer.pass}</td> {/* Display the customer's password */}
+        <tr onClick={handleListClick} className={(customer === currentCustomer) ? "checked" : ""}>
+            <td>{customer.name}</td>
+            <td>{customer.email}</td>
+            <td>{customer.pass}</td>
         </tr>
     )
 }

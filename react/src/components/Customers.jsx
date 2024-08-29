@@ -14,22 +14,15 @@ export const Customers = ({ customers, setCurrentCustomer, current }) => {
                     </tr>
                 </thead>
                 <tbody>
-                {customers.map(c => <Customer customer={c} key={c.id} setCurrentCustomer={setCurrentCustomer} currentCustomer={current} />)}
+                {customers.map(c => <Customer 
+                                        customer={c} 
+                                        key={c.id} 
+                                        setCurrentCustomer={setCurrentCustomer} 
+                                        currentCustomer={current}/>)}
                 </tbody>
               </table>
     </>  
   )
-    return (
-        // Map over the array of customers and render a Customer component for each
-        customers.map(c => (
-            <Customer 
-                customer={c} 
-                key={c.id} // Unique key for each Customer component to help React identify which items have changed
-                setCurrentCustomer={setCurrentCustomer} // Function to set the current customer being edited
-                currentCustomer={current} // The current customer object to indicate which customer is currently selected
-            />
-        ))
-    );
 }
 
 

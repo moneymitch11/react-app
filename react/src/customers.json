@@ -15,4 +15,16 @@
     "email": "rap@example.com",
     "pass": "pass678",
     "id":3
+},
+{
+    "name": "John Micheal",
+    "email": "john@example.com",
+    "pass": "pookums12",
+    "id":2
+},
+{
+    "name": "Shawn Jones",
+    "email": "shawn@example.com",
+    "pass": "!bubblegum5",
+    "id":4
 }]

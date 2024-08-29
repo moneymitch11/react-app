@@ -2,11 +2,6 @@ import { useState, useEffect } from 'react';
 
 export const UpdateForm = ({ current, addCustomer, deleteCustomer, updateCustomer, cancelSelection }) => {
 
-// UpdateForm component for managing updates to customer information
-export const UpdateForm = ({ current, setOption, customers, setCustomers }) => {
-    
-    let updatedCustomers;
-
     // State to manage the form's input values, initialized with the current customer data
     const [formState, setFormState] = useState({ ...current });
 
@@ -49,7 +44,7 @@ export const UpdateForm = ({ current, setOption, customers, setCustomers }) => {
 
     return (
         <>
-            <h2 style="center">Update</h2>
+            <h2>Update</h2>
             <form action="update">
                 <div>
                     <label>Name: </label>
@@ -78,11 +73,14 @@ export const UpdateForm = ({ current, setOption, customers, setCustomers }) => {
                         onChange={handleInputChange}
                     />
                 </div>
+                <div>
+                    <button onClick={onAddClick}>Add</button>
+                    <button onClick={ondeleteclick}>Delete</button>
+                    <button onClick={onsaveclick}>Save</button>
+                    <button onClick={oncancelclick}>Cancel</button>
+                </div>
             </form>
-            <button onClick={onAddClick}>Add</button>
-            <button onClick={ondeleteclick}>Delete</button>
-            <button onClick={onsaveclick}>Save</button>
-            <button onClick={oncancelclick}>Cancel</button>
+            
         </>
     );
 }
